@@ -31,7 +31,7 @@ Pollfish is a mobile monetization platform delivering surveys instead of ads thr
 
 ## Steps Analytically (Documentation)
 
-You can see a step by step guide on how to integrate Pollfish surveys into your app at the official [Documentation page](http://www.pollfish.com/android)
+You can see a step by step guide on how to integrate Pollfish surveys at the official [Documentation page](http://www.pollfish.com/android)
 
 ## Try the look and feel of Pollfish surveys on Pollfish Demo App
 
@@ -41,3 +41,6 @@ You can see a step by step guide on how to integrate Pollfish surveys into your 
 
 Pollfish requires only one permission:
 
+```
+<uses-permission android:name="android.permission.INTERNET" />
+```
