@@ -1,7 +1,7 @@
 # application files
 *.apk
 *.ap_
-*.arr
+*.aar
 
 # Files for the Dalvik VM
 *.dex
@@ -30,7 +30,7 @@ proguard/
 # Android Studio
 *.iml
 .idea
-.idea/
+sample-project/.idea/
 
 # OSX files
 .DS_Store
