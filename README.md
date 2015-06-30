@@ -48,3 +48,8 @@ Pollfish requires only one permission:
 ```
 <uses-permission android:name="android.permission.INTERNET" />
 ```
+
+## FAQ
+
+You can see frequently asked questions [here] (https://www.pollfish.com/faq)
+
