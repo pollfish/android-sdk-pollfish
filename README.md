@@ -33,7 +33,7 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 ![alt tag](https://storage.googleapis.com/pollfish_production/sdk/Android/playful_1.png)
 ![alt tag](https://storage.googleapis.com/pollfish_production/sdk/Android/playful_2.png)
 
-## Steps Analytically (Documentation)
+## Documentation
 
 You can see a step by step guide on how to integrate Pollfish surveys at the official [Documentation page](http://www.pollfish.com/android)
 
