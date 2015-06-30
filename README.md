@@ -2,7 +2,7 @@
 
 ![alt tag](https://www.pollfish.com/img/logoHome.png)
 
-Pollfish is new way of monetizing mobile apps that pays up to 20x more than classic ads. 
+[Pollfish] (http://www.pollfish.com) is new way of monetizing mobile apps that pays up to 20x more than classic ads. 
 
 Pollfish is a survey platform that delivers surveys instead of ads through mobile apps. Integration of Pollfish SDK takes less than 2 minutes and requires only one line of code. No changes are needed in the UI of the app since everything is displayed as an overlay (see screenshots below), while users that respond to surveys, enter into draws and win prizes (happy users)! 
 
