@@ -46,7 +46,7 @@ Try the look and feel of Pollfish surveys on [Pollfish Android Demo App] (https:
 Pollfish requires only one permission:
 
 ```
-<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.INTERNET"/>
 ```
 
 ## FAQ
