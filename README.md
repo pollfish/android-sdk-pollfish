@@ -14,7 +14,7 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 
 ## Prerequisites
 
-*	Android 10+ 
+*	Android 10+ with Google Play Services
 
 ## Quick Quide
 
