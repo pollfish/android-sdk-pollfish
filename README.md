@@ -25,7 +25,7 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 * Add permissions to AndroidManifest.xml
 * Call Pollfish initialization function in onResume() of your Activity to activate Pollfish
 * Update your privacy policy
-* Set to Release mode and release in Store
+* Set to Release mode and publish your app at any app store
 
 ## Look & Feel
 
