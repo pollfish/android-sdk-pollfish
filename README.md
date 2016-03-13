@@ -30,8 +30,7 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 
 ## Screenshots
 
-![alt tag](https://storage.googleapis.com/pollfish_production/sdk/Android/playful_1.png)
-![alt tag](https://storage.googleapis.com/pollfish_production/sdk/Android/playful_2.png)
+![alt tag](https://storage.googleapis.com/pollfish_production/multimedia/playful_survey.gif)
 
 ## Documentation
 
