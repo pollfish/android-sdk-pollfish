@@ -18,17 +18,16 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 
 ## Quick Quide
 
-* Download Pollfish jar or aar file and add to your project
-* Setup Google Play services for your app, as described [here](https://developer.android.com/google/play-services/setup.html).
+* Register as a publisher at [Pollfish](http://www.pollfish.com/login/publisher), create an App and copy app's API key
+* Download Pollfish jar or aar file and import to your project
+* Import Google Play Services for your app, as described [here](https://developer.android.com/google/play-services/setup.html).
 * Import Pollfish classes
 * Add permissions to AndroidManifest.xml
-* Call the init function to activate Pollfish
-* Set to Release mode and release in Store
+* Call Pollfish initialization function in onResume() of your Activity to activate Pollfish
 * Update your privacy policy
+* Set to Release mode and release in Store
 
-**Note: Be careful to turn the debuggable parameter in AndroidManifest.xml to false when you release your app in Google Play! (or just delete it)**
-
-## Screenshots
+## Look & Feel
 
 ![alt tag](https://storage.googleapis.com/pollfish_production/multimedia/playful_survey.gif)
 
