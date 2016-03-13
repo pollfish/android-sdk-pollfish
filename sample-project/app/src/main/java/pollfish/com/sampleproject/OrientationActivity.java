@@ -1,14 +1,14 @@
 package pollfish.com.sampleproject;
 
-import com.pollfish.constants.Position;
-import com.pollfish.main.PollFish;
-
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import com.pollfish.constants.Position;
+import com.pollfish.main.PollFish;
 
 public class OrientationActivity extends Activity {
 
@@ -34,13 +34,26 @@ public class OrientationActivity extends Activity {
 	public void onResume() {
 		super.onResume();
 
-		 PollFish.init(this, "2ad6e857-2995-4668-ab95-39e068faa558", Position.BOTTOM_RIGHT, 5);
+
+		PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
+				.indicatorPadding(5)
+				.indicatorPosition(Position.BOTTOM_RIGHT)
+				.build();
+
+		PollFish.initWith(this, paramsBuilder);
+
 	}
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 
-		 PollFish.init(this, "2ad6e857-2995-4668-ab95-39e068faa558", Position.BOTTOM_RIGHT, 5);
+
+		PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
+				.indicatorPadding(5)
+				.indicatorPosition(Position.BOTTOM_RIGHT)
+				.build();
+
+		PollFish.initWith(this, paramsBuilder);
 	}
 }

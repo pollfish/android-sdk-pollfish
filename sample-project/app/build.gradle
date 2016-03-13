@@ -19,6 +19,6 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:22.1.1'
-    compile 'com.google.android.gms:play-services:7.0.0'
-    compile 'com.pollfish:pollfish:4.1.0:googleplayRelease@aar'
+    compile 'com.google.android.gms:play-services-base:8.4.0'
+    compile 'com.pollfish:pollfish:4.2.0:googleplayRelease@aar'
 }

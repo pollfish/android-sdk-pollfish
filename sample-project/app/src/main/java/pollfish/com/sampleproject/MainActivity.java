@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.pollfish.constants.Position;
+import com.pollfish.constants.UserProperties;
 import com.pollfish.interfaces.PollfishClosedListener;
 import com.pollfish.interfaces.PollfishOpenedListener;
 import com.pollfish.interfaces.PollfishSurveyCompletedListener;
@@ -16,9 +17,6 @@ import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
 import com.pollfish.interfaces.PollfishSurveyReceivedListener;
 import com.pollfish.interfaces.PollfishUserNotEligibleListener;
 import com.pollfish.main.PollFish;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends Activity implements
 		PollfishSurveyCompletedListener, PollfishOpenedListener,
@@ -88,37 +86,24 @@ public class MainActivity extends Activity implements
 	public void onResume() {
 		super.onResume();
 
-		/**
-		 * Start the library. Set the api key. Choose position to place the
-		 * indicator (Position.TOP_LEFT, Position.BOTTOM_LEFT,MIDDLE_LEFT,
-		 * Position.TOP_RIGHT, Position.BOTTOM_RIGHT, MIDDLE_RIGHT). Set padding
-		 * for the indicator position from bottom/middle or top according to
-		 * position, 0 if default.
-		 * 
-		 * @param act
-		 *            - Your current activity
-		 * @param apiKey
-		 *            - The api Key for your app (register at www.pollfish.com)
-		 * @param p
-		 *            - The position to place the pollfish indicator
-		 * @param indPadding
-		 *            - padding between the indicator and the selected position
-		 *            in the screen - 0 for default
-		 * 
-		 *            e.g PollFish.init(this,
-		 *            "2ad6e857-2995-4668-ab95-39e068faa558",
-		 *            Position.BOTTOM_RIGHT,5);
-		 */
 
-		PollFish.init(this, "2ad6e857-2995-4668-ab95-39e068faa558",
-				Position.BOTTOM_RIGHT, 65);
+		PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
+				.indicatorPadding(50)
+				.indicatorPosition(Position.BOTTOM_RIGHT)
+				.customMode(false)
+				.releaseMode(false)
+				.build();
 
-		Map<String, String> map = new HashMap<String,String>();
-		
-		map.put("FacebookID", "123423423ewdfdsf2w2e3");
-		map.put("TwitterID", "10sdfwerqewqwcwew11");
+		PollFish.initWith(this, paramsBuilder);
 
-		PollFish.setAttributesMap(map);
+		UserProperties userProperties = new UserProperties();
+		userProperties.setEmail("my_email@google.com");
+		userProperties.setAge(UserProperties.Age._68);
+		userProperties.setGender(UserProperties.Gender.MALE);
+		userProperties.setYearOfBirth(UserProperties.YearOfBirth._2005);
+
+		PollFish.setAttributesMap(userProperties);
+
 
 	}
 

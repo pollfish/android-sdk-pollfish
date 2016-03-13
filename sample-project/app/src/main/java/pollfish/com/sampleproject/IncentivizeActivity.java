@@ -15,7 +15,6 @@ import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
 import com.pollfish.interfaces.PollfishSurveyReceivedListener;
 import com.pollfish.interfaces.PollfishUserNotEligibleListener;
 import com.pollfish.main.PollFish;
-import com.pollfish.constants.Position;
 
 public class IncentivizeActivity extends Activity implements
 		PollfishSurveyCompletedListener, PollfishOpenedListener,
@@ -96,10 +95,13 @@ public class IncentivizeActivity extends Activity implements
 		super.onResume();
 
 		Log.d("Pollfish", "onResume() ");
-		
-		PollFish.customInit(IncentivizeActivity.this, "2ad6e857-2995-4668-ab95-39e068faa558",
-				Position.MIDDLE_LEFT, 5);
 
+		PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
+				.indicatorPadding(5)
+				.customMode(true)
+				.build();
+
+		PollFish.initWith(this, paramsBuilder);
 		PollFish.hide();
 
 		loggingTxt.setText(getString(R.string.logging));
