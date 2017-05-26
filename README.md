@@ -1,6 +1,6 @@
 # Pollfish Android SDK
 
-![alt tag](https://www.pollfish.com/img/logoHome.png)
+![alt tag](https://storage.googleapis.com/pollfish-images/logoHome.png)
 
 [Pollfish] (http://www.pollfish.com) is new way of monetizing mobile apps that pays up to 20x more than classic ads. 
 
