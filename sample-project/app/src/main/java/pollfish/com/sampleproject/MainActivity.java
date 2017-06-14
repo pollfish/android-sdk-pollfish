@@ -86,24 +86,37 @@ public class MainActivity extends Activity implements
 	public void onResume() {
 		super.onResume();
 
+			UserProperties userProperties = new UserProperties()
+                      /*included in Demographic Surveys*/           
+              		  .setGender(Gender.MALE)
+                      .setYearOfBirth(YearOfBirth._1984)
+                      .setMaritalStatus(MaritalStatus.SINGLE)
+                      .setParentalStatus(ParentalStatus.ZERO)
+                      .setEducation(EducationLevel.UNIVERSITY)
+                      .setEmployment(EmploymentStatus.EMPLOYED_FOR_WAGES)
+                      .setCareer(Career.TELECOMMUNICATIONS)
+                      .setRace(Race.WHITE)
+                      .setIncome(Income.MIDDLE_I)
+               		  /*other user attributes*/
+                      .setEmail("user_email@test.com")
+                      .setFacebookId("USER_FB")
+                      .setGoogleId("USER_GOOGLE")
+                      .setTwitterId("USER_TWITTER")
+                      .setLinkedInId("USER_LINKEDIN")
+                      .setPhone("USER_PHONE")
+                      .setName("USER_NAME")
+                      .setSurname("USER_SURNAME")
+                      .setCustomAttributes("MY_PARAM", "MY_VALUE");
 
 		PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
 				.indicatorPadding(50)
 				.indicatorPosition(Position.BOTTOM_RIGHT)
 				.customMode(false)
 				.releaseMode(false)
+				.userProperties(userProperties);
 				.build();
 
 		PollFish.initWith(this, paramsBuilder);
-
-		UserProperties userProperties = new UserProperties();
-		userProperties.setEmail("my_email@google.com");
-		userProperties.setAge(UserProperties.Age._68);
-		userProperties.setGender(UserProperties.Gender.MALE);
-		userProperties.setYearOfBirth(UserProperties.YearOfBirth._2005);
-
-		PollFish.setAttributesMap(userProperties);
-
 
 	}
 
