@@ -19,137 +19,139 @@ import com.pollfish.interfaces.PollfishUserNotEligibleListener;
 import com.pollfish.main.PollFish;
 
 public class MainActivity extends Activity implements
-		PollfishSurveyCompletedListener, PollfishOpenedListener,
-		PollfishClosedListener, PollfishSurveyReceivedListener,
-		PollfishSurveyNotAvailableListener, PollfishUserNotEligibleListener {
+        PollfishSurveyCompletedListener, PollfishOpenedListener,
+        PollfishClosedListener, PollfishSurveyReceivedListener,
+        PollfishSurveyNotAvailableListener, PollfishUserNotEligibleListener {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
-		setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		// show Pollfish if available anywhere within the activity LifeCycle
+        setContentView(R.layout.activity_main);
 
-		Button showBtn = (Button) findViewById(R.id.show_btn);
-		showBtn.setOnClickListener(new OnClickListener() {
+        // show Pollfish if available anywhere within the activity LifeCycle
 
-			@Override
-			public void onClick(View v) {
-				PollFish.show();
-			}
-		});
+        Button showBtn = (Button) findViewById(R.id.show_btn);
+        showBtn.setOnClickListener(new OnClickListener() {
 
-		// hide Pollfish if available anywhere within the activity LifeCycle
+            @Override
+            public void onClick(View v) {
+                PollFish.show();
+            }
+        });
 
-		Button hideBtn = (Button) findViewById(R.id.hide_btn);
-		hideBtn.setOnClickListener(new OnClickListener() {
+        // hide Pollfish if available anywhere within the activity LifeCycle
 
-			@Override
-			public void onClick(View v) {
-				PollFish.hide();
-			}
-		});
+        Button hideBtn = (Button) findViewById(R.id.hide_btn);
+        hideBtn.setOnClickListener(new OnClickListener() {
 
-		// start activity to see orientation handle
+            @Override
+            public void onClick(View v) {
+                PollFish.hide();
+            }
+        });
 
-		Button activityBtn = (Button) findViewById(R.id.activity_btn);
-		activityBtn.setOnClickListener(new OnClickListener() {
+        // start activity to see orientation handle
 
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this,
-						OrientationActivity.class);
+        Button activityBtn = (Button) findViewById(R.id.activity_btn);
+        activityBtn.setOnClickListener(new OnClickListener() {
 
-				startActivity(intent);
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,
+                        OrientationActivity.class);
 
-			}
-		});
+                startActivity(intent);
 
-		// start activity to see implementation with incentivization
+            }
+        });
 
-		Button incentivize_act_Btn = (Button) findViewById(R.id.incent_act_btn);
-		incentivize_act_Btn.setOnClickListener(new OnClickListener() {
+        // start activity to see implementation with incentivization
 
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent(MainActivity.this,
-						IncentivizeActivity.class);
+        Button incentivize_act_Btn = (Button) findViewById(R.id.incent_act_btn);
+        incentivize_act_Btn.setOnClickListener(new OnClickListener() {
 
-				startActivity(intent);
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,
+                        IncentivizeActivity.class);
 
-			}
-		});
-	}
+                startActivity(intent);
 
-	@Override
-	public void onResume() {
-		super.onResume();
+            }
+        });
+    }
 
-			UserProperties userProperties = new UserProperties()
-                      /*included in Demographic Surveys*/           
-              		  .setGender(Gender.MALE)
-                      .setYearOfBirth(YearOfBirth._1984)
-                      .setMaritalStatus(MaritalStatus.SINGLE)
-                      .setParentalStatus(ParentalStatus.ZERO)
-                      .setEducation(EducationLevel.UNIVERSITY)
-                      .setEmployment(EmploymentStatus.EMPLOYED_FOR_WAGES)
-                      .setCareer(Career.TELECOMMUNICATIONS)
-                      .setRace(Race.WHITE)
-                      .setIncome(Income.MIDDLE_I)
-               		  /*other user attributes*/
-                      .setEmail("user_email@test.com")
-                      .setFacebookId("USER_FB")
-                      .setGoogleId("USER_GOOGLE")
-                      .setTwitterId("USER_TWITTER")
-                      .setLinkedInId("USER_LINKEDIN")
-                      .setPhone("USER_PHONE")
-                      .setName("USER_NAME")
-                      .setSurname("USER_SURNAME")
-                      .setCustomAttributes("MY_PARAM", "MY_VALUE");
+    @Override
+    public void onResume() {
+        super.onResume();
 
-		PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
-				.indicatorPadding(50)
-				.indicatorPosition(Position.BOTTOM_RIGHT)
-				.customMode(false)
-				.releaseMode(false)
-				.userProperties(userProperties);
-				.build();
+        UserProperties userProperties = new UserProperties()
+                      /*included in Demographic Surveys*/
+		// Added UserProperties class as a part of the fix for the issue #3
+		// by github.com/RahulSDeshpande
+                .setGender(UserProperties.Gender.MALE)
+                .setYearOfBirth(UserProperties.YearOfBirth._1984)
+                .setMaritalStatus(UserProperties.MaritalStatus.SINGLE)
+                .setParentalStatus(UserProperties.ParentalStatus.ZERO)
+                .setEducation(UserProperties.EducationLevel.UNIVERSITY)
+                .setEmployment(UserProperties.EmploymentStatus.EMPLOYED_FOR_WAGES)
+                .setCareer(UserProperties.Career.TELECOMMUNICATIONS)
+                .setRace(UserProperties.Race.WHITE)
+                .setIncome(UserProperties.Income.MIDDLE_I)
+                         /*other user attributes*/
+                .setEmail("user_email@test.com")
+                .setFacebookId("USER_FB")
+                .setGoogleId("USER_GOOGLE")
+                .setTwitterId("USER_TWITTER")
+                .setLinkedInId("USER_LINKEDIN")
+                .setPhone("USER_PHONE")
+                .setName("USER_NAME")
+                .setSurname("USER_SURNAME")
+                .setCustomAttributes("MY_PARAM", "MY_VALUE");
 
-		PollFish.initWith(this, paramsBuilder);
+        PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
+                .indicatorPadding(50)
+                .indicatorPosition(Position.BOTTOM_RIGHT)
+                .customMode(false)
+                .releaseMode(false)
+                .userProperties(userProperties)
+                .build();
 
-	}
+        PollFish.initWith(this, paramsBuilder);
 
-	@Override
-	public void onPollfishClosed() {
-		Log.d("Pollfish", "onPollfishClosed()");
-	}
+    }
 
-	@Override
-	public void onPollfishOpened() {
-		Log.d("Pollfish", "onPollfishOpened()");
-	}
+    @Override
+    public void onPollfishClosed() {
+        Log.d("Pollfish", "onPollfishClosed()");
+    }
 
-	@Override
-	public void onPollfishSurveyNotAvailable() {
-		Log.d("Pollfish", "onPollfishSurveyNotAvailable()");
+    @Override
+    public void onPollfishOpened() {
+        Log.d("Pollfish", "onPollfishOpened()");
+    }
 
-	}
+    @Override
+    public void onPollfishSurveyNotAvailable() {
+        Log.d("Pollfish", "onPollfishSurveyNotAvailable()");
 
-	@Override
-	public void onUserNotEligible() {
-		Log.d("Pollfish", "onUserNotEligible()");
+    }
 
-	}
+    @Override
+    public void onUserNotEligible() {
+        Log.d("Pollfish", "onUserNotEligible()");
 
-	@Override
-	public void onPollfishSurveyReceived(boolean playfulSurvey, int surveyPrice) {
-		Log.d("Pollfish", "onPollfishSurveyReceived(" + playfulSurvey + " , " + surveyPrice + ")");
-	}
+    }
 
-	@Override
-	public void onPollfishSurveyCompleted(boolean playfulSurvey, int surveyPrice) {
-		Log.d("Pollfish", "onPollfishSurveyCompleted(" + playfulSurvey + " , " + surveyPrice + ")");
-	}
-	
+    @Override
+    public void onPollfishSurveyReceived(boolean playfulSurvey, int surveyPrice) {
+        Log.d("Pollfish", "onPollfishSurveyReceived(" + playfulSurvey + " , " + surveyPrice + ")");
+    }
+
+    @Override
+    public void onPollfishSurveyCompleted(boolean playfulSurvey, int surveyPrice) {
+        Log.d("Pollfish", "onPollfishSurveyCompleted(" + playfulSurvey + " , " + surveyPrice + ")");
+    }
+
 }
