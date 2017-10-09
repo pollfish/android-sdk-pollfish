@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "pollfish.com.sampleproject"
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -18,10 +18,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.google.android.gms:play-services-base:9.6.1'
-    
-    // Fixed as a part of issue #3 | 4.3.1 -> 4.3.3
-    // compile 'com.pollfish:pollfish:4.3.1:googleplayRelease@aar'
-    compile 'com.pollfish:pollfish:4.3.3:googleplayRelease@aar'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.google.android.gms:play-services-base:11.0.2'
+    compile 'com.pollfish:pollfish:4.3.4:googleplayRelease@aar'
 }
