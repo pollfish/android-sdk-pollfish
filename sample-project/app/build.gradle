@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "pollfish.com.sampleproject"
@@ -20,5 +20,5 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.google.android.gms:play-services-base:11.0.2'
-    compile 'com.pollfish:pollfish:4.3.4:googleplayRelease@aar'
+    compile 'com.pollfish:pollfish:4.3.5:googleplayRelease@aar'
 }
