@@ -16,12 +16,13 @@ import com.pollfish.interfaces.PollfishSurveyCompletedListener;
 import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
 import com.pollfish.interfaces.PollfishSurveyReceivedListener;
 import com.pollfish.interfaces.PollfishUserNotEligibleListener;
+import com.pollfish.interfaces.PollfishUserRejectedSurveyListener;
 import com.pollfish.main.PollFish;
 
 public class MainActivity extends Activity implements
         PollfishSurveyCompletedListener, PollfishOpenedListener,
         PollfishClosedListener, PollfishSurveyReceivedListener,
-        PollfishSurveyNotAvailableListener, PollfishUserNotEligibleListener {
+        PollfishSurveyNotAvailableListener, PollfishUserNotEligibleListener, PollfishUserRejectedSurveyListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,4 +155,8 @@ public class MainActivity extends Activity implements
         Log.d("Pollfish", "onPollfishSurveyCompleted(" + playfulSurvey + " , " + surveyPrice + ")");
     }
 
+    @Override
+    public void onUserRejectedSurvey() {
+        Log.d("Pollfish", "onUserRejectedSurvey()");
+    }
 }

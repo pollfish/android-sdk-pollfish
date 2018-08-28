@@ -14,12 +14,14 @@ import com.pollfish.interfaces.PollfishSurveyCompletedListener;
 import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
 import com.pollfish.interfaces.PollfishSurveyReceivedListener;
 import com.pollfish.interfaces.PollfishUserNotEligibleListener;
+import com.pollfish.interfaces.PollfishUserRejectedSurveyListener;
 import com.pollfish.main.PollFish;
 
 public class IncentivizeActivity extends Activity implements
 		PollfishSurveyCompletedListener, PollfishOpenedListener,
 		PollfishClosedListener, PollfishSurveyReceivedListener,
-		PollfishSurveyNotAvailableListener, PollfishUserNotEligibleListener {
+		PollfishSurveyNotAvailableListener, PollfishUserNotEligibleListener, PollfishUserRejectedSurveyListener {
+
 
 	private Button coinsBtn;
 	private TextView loggingTxt;
@@ -135,4 +137,15 @@ public class IncentivizeActivity extends Activity implements
 		});
 	}
 
+	@Override
+	public void onUserRejectedSurvey() {
+
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				coinsBtn.setVisibility(View.INVISIBLE);
+				loggingTxt.setText(getString(R.string.user_rejected_survey));
+			}
+		});
+	}
 }

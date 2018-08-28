@@ -17,6 +17,7 @@
     <string name="survey_completed">Pollfish Survey Completed - Congratulations, you have won 200 coins!</string>
     <string name="logging">Logging area..</string>
     <string name="user_not_eligible">User Not Eligible</string>
+    <string name="user_rejected_survey">User Rejected Survey</string>
      <string name="not_available">Pollfish Survey Not Available</string>
 
 </resources>
