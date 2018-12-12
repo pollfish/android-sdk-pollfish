@@ -8,8 +8,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.pollfish.classes.SurveyInfo;
 import com.pollfish.interfaces.PollfishClosedListener;
+import com.pollfish.interfaces.PollfishCompletedSurveyListener;
 import com.pollfish.interfaces.PollfishOpenedListener;
+import com.pollfish.interfaces.PollfishReceivedSurveyListener;
 import com.pollfish.interfaces.PollfishSurveyCompletedListener;
 import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
 import com.pollfish.interfaces.PollfishSurveyReceivedListener;
@@ -18,8 +21,8 @@ import com.pollfish.interfaces.PollfishUserRejectedSurveyListener;
 import com.pollfish.main.PollFish;
 
 public class IncentivizeActivity extends Activity implements
-		PollfishSurveyCompletedListener, PollfishOpenedListener,
-		PollfishClosedListener, PollfishSurveyReceivedListener,
+		PollfishCompletedSurveyListener, PollfishReceivedSurveyListener, PollfishOpenedListener,
+		PollfishClosedListener,
 		PollfishSurveyNotAvailableListener, PollfishUserNotEligibleListener, PollfishUserRejectedSurveyListener {
 
 
@@ -112,22 +115,19 @@ public class IncentivizeActivity extends Activity implements
 	}
 
 	@Override
-	public void onPollfishSurveyReceived(boolean playfulSurvey, int surveyPrice) {
-		Log.d("Pollfish", "onPollfishSurveyReceived(" + playfulSurvey + " , " + surveyPrice + ")");	
+	public void onUserRejectedSurvey() {
 
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				coinsBtn.setVisibility(View.VISIBLE);
-				loggingTxt.setText("Pollfish Survey Received");
+				coinsBtn.setVisibility(View.INVISIBLE);
+				loggingTxt.setText(getString(R.string.user_rejected_survey));
 			}
 		});
 	}
 
 	@Override
-	public void onPollfishSurveyCompleted(boolean playfulSurvey, int surveyPrice) {
-		Log.d("Pollfish", "onPollfishSurveyCompleted(" + playfulSurvey + " , " + surveyPrice + ")");
-
+	public void onPollfishSurveyCompleted(SurveyInfo surveyInfo) {
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
@@ -138,13 +138,13 @@ public class IncentivizeActivity extends Activity implements
 	}
 
 	@Override
-	public void onUserRejectedSurvey() {
+	public void onPollfishSurveyReceived(SurveyInfo surveyInfo) {
 
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				coinsBtn.setVisibility(View.INVISIBLE);
-				loggingTxt.setText(getString(R.string.user_rejected_survey));
+				coinsBtn.setVisibility(View.VISIBLE);
+				loggingTxt.setText("Pollfish Survey Received");
 			}
 		});
 	}

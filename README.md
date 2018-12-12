@@ -19,7 +19,7 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 ## Quick Quide
 
 * Register as a publisher at [Pollfish](http://www.pollfish.com/login/publisher), create an App and copy app's API key
-* Download Pollfish jar or aar file and import to your project
+* Download Pollfish aar file and import to your project
 * Import Google Play Services for your app, as described [here](https://developer.android.com/google/play-services/setup.html).
 * Import Pollfish classes
 * Add permissions to AndroidManifest.xml

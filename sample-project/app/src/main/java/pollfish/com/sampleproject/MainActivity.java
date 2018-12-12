@@ -8,10 +8,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.pollfish.classes.SurveyInfo;
 import com.pollfish.constants.Position;
 import com.pollfish.constants.UserProperties;
 import com.pollfish.interfaces.PollfishClosedListener;
+import com.pollfish.interfaces.PollfishCompletedSurveyListener;
 import com.pollfish.interfaces.PollfishOpenedListener;
+import com.pollfish.interfaces.PollfishReceivedSurveyListener;
 import com.pollfish.interfaces.PollfishSurveyCompletedListener;
 import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
 import com.pollfish.interfaces.PollfishSurveyReceivedListener;
@@ -20,8 +23,8 @@ import com.pollfish.interfaces.PollfishUserRejectedSurveyListener;
 import com.pollfish.main.PollFish;
 
 public class MainActivity extends Activity implements
-        PollfishSurveyCompletedListener, PollfishOpenedListener,
-        PollfishClosedListener, PollfishSurveyReceivedListener,
+        PollfishCompletedSurveyListener, PollfishOpenedListener,
+        PollfishClosedListener, PollfishReceivedSurveyListener,
         PollfishSurveyNotAvailableListener, PollfishUserNotEligibleListener, PollfishUserRejectedSurveyListener {
 
     @Override
@@ -146,17 +149,20 @@ public class MainActivity extends Activity implements
     }
 
     @Override
-    public void onPollfishSurveyReceived(boolean playfulSurvey, int surveyPrice) {
-        Log.d("Pollfish", "onPollfishSurveyReceived(" + playfulSurvey + " , " + surveyPrice + ")");
-    }
-
-    @Override
-    public void onPollfishSurveyCompleted(boolean playfulSurvey, int surveyPrice) {
-        Log.d("Pollfish", "onPollfishSurveyCompleted(" + playfulSurvey + " , " + surveyPrice + ")");
-    }
-
-    @Override
     public void onUserRejectedSurvey() {
         Log.d("Pollfish", "onUserRejectedSurvey()");
+    }
+
+    @Override
+    public void onPollfishSurveyCompleted(SurveyInfo surveyInfo) {
+        Log.d("Pollfish", "onPollfishSurveyCompleted with CPA: " + surveyInfo.getSurveyCPA()
+                + " and SurveyClass: " + surveyInfo.getSurveyClass()+ " and LOI: " + surveyInfo.getSurveyLOI()+ " and IR: " + surveyInfo.getSurveyIR());
+    }
+
+    @Override
+    public void onPollfishSurveyReceived(SurveyInfo surveyInfo) {
+        Log.d("Pollfish", "onPollfishSurveyReceived with CPA: " + surveyInfo.getSurveyCPA()
+                + " and SurveyClass: " + surveyInfo.getSurveyClass()+ " and LOI: " + surveyInfo.getSurveyLOI()+ " and IR: " + surveyInfo.getSurveyIR());
+
     }
 }
