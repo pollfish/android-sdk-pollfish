@@ -9,18 +9,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.pollfish.classes.SurveyInfo;
+import com.pollfish.constants.Position;
 import com.pollfish.interfaces.PollfishClosedListener;
 import com.pollfish.interfaces.PollfishCompletedSurveyListener;
 import com.pollfish.interfaces.PollfishOpenedListener;
 import com.pollfish.interfaces.PollfishReceivedSurveyListener;
-import com.pollfish.interfaces.PollfishSurveyCompletedListener;
 import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
-import com.pollfish.interfaces.PollfishSurveyReceivedListener;
 import com.pollfish.interfaces.PollfishUserNotEligibleListener;
 import com.pollfish.interfaces.PollfishUserRejectedSurveyListener;
 import com.pollfish.main.PollFish;
 
-public class IncentivizeActivity extends Activity implements
+public class RewardedSurveyActivity extends Activity implements
 		PollfishCompletedSurveyListener, PollfishReceivedSurveyListener, PollfishOpenedListener,
 		PollfishClosedListener,
 		PollfishSurveyNotAvailableListener, PollfishUserNotEligibleListener, PollfishUserRejectedSurveyListener {
@@ -46,7 +45,6 @@ public class IncentivizeActivity extends Activity implements
 
 			}
 		});
-
 		coinsBtn.setVisibility(View.INVISIBLE);
 
 		Button activityBackBtn = (Button) findViewById(R.id.activity_back_btn);
@@ -89,6 +87,7 @@ public class IncentivizeActivity extends Activity implements
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
+				coinsBtn.setVisibility(View.INVISIBLE);
 				loggingTxt.setText(getString(R.string.user_not_eligible));
 			}
 		});
@@ -102,15 +101,12 @@ public class IncentivizeActivity extends Activity implements
 		Log.d("Pollfish", "onResume() ");
 
 		PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
-				.indicatorPadding(5)
-				.customMode(true)
+				.rewardMode(true)
 				.build();
 
 		PollFish.initWith(this, paramsBuilder);
-		PollFish.hide();
 
 		loggingTxt.setText(getString(R.string.logging));
-
 		coinsBtn.setVisibility(View.INVISIBLE);
 	}
 
@@ -132,6 +128,8 @@ public class IncentivizeActivity extends Activity implements
 			@Override
 			public void run() {
 				coinsBtn.setVisibility(View.INVISIBLE);
+
+				// in a real world scenario you should wait here for verification from s2s callback prior rewarding your users
 				loggingTxt.setText(getString(R.string.survey_completed));
 			}
 		});

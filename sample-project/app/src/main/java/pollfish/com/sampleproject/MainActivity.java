@@ -15,9 +15,7 @@ import com.pollfish.interfaces.PollfishClosedListener;
 import com.pollfish.interfaces.PollfishCompletedSurveyListener;
 import com.pollfish.interfaces.PollfishOpenedListener;
 import com.pollfish.interfaces.PollfishReceivedSurveyListener;
-import com.pollfish.interfaces.PollfishSurveyCompletedListener;
 import com.pollfish.interfaces.PollfishSurveyNotAvailableListener;
-import com.pollfish.interfaces.PollfishSurveyReceivedListener;
 import com.pollfish.interfaces.PollfishUserNotEligibleListener;
 import com.pollfish.interfaces.PollfishUserRejectedSurveyListener;
 import com.pollfish.main.PollFish;
@@ -72,18 +70,32 @@ public class MainActivity extends Activity implements
 
         // start activity to see implementation with incentivization
 
-        Button incentivize_act_Btn = (Button) findViewById(R.id.incent_act_btn);
+        Button incentivize_act_Btn = (Button) findViewById(R.id.rewarded_survey_act_btn);
         incentivize_act_Btn.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,
-                        IncentivizeActivity.class);
+                        RewardedSurveyActivity.class);
 
                 startActivity(intent);
 
             }
         });
+
+        Button offerwall_act_Btn = (Button) findViewById(R.id.offerwall_act_btn);
+        offerwall_act_Btn.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,
+                        OfferwallActivity.class);
+
+                 startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
@@ -116,7 +128,7 @@ public class MainActivity extends Activity implements
 
         PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
                 .indicatorPadding(50)
-                .indicatorPosition(Position.BOTTOM_RIGHT)
+                .indicatorPosition(Position.MIDDLE_RIGHT)
                 .customMode(false)
                 .releaseMode(false)
                 .userProperties(userProperties)

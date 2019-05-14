@@ -20,5 +20,5 @@ android {
 dependencies {
     implementation 'com.android.support:appcompat-v7:25.2.0'
     implementation 'com.google.android.gms:play-services-base:11.0.2'
-    implementation 'com.pollfish:pollfish:4.5.0:googleplayRelease@aar'
+    implementation project(path: ':pollfish-googleplay-5.0.0')
 }
