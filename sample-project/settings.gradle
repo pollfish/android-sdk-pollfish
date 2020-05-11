@@ -1,1 +1,1 @@
-include ':app', ':pollfish-googleplay-5.4.0'
+include ':app'
