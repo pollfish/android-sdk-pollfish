@@ -115,21 +115,11 @@ public class MainActivity extends Activity implements
                 .setCareer(UserProperties.Career.TELECOMMUNICATIONS)
                 .setRace(UserProperties.Race.WHITE)
                 .setIncome(UserProperties.Income.MIDDLE_I)
-                         /*other user attributes*/
-                .setEmail("user_email@test.com")
-                .setFacebookId("USER_FB")
-                .setGoogleId("USER_GOOGLE")
-                .setTwitterId("USER_TWITTER")
-                .setLinkedInId("USER_LINKEDIN")
-                .setPhone("USER_PHONE")
-                .setName("USER_NAME")
-                .setSurname("USER_SURNAME")
                 .setCustomAttributes("MY_PARAM", "MY_VALUE");
 
         PollFish.ParamsBuilder paramsBuilder = new PollFish.ParamsBuilder("2ad6e857-2995-4668-ab95-39e068faa558")
                 .indicatorPadding(50)
                 .indicatorPosition(Position.MIDDLE_RIGHT)
-                .customMode(false)
                 .releaseMode(false)
                 .userProperties(userProperties)
                 .build();
