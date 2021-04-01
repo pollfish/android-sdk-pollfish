@@ -28,5 +28,4 @@ proguard/
 
 # OSX files
 **/.DS_Store
-gradle/
 /app/build/
