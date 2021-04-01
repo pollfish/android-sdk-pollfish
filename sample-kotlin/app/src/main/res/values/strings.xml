@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Pollfish Sample Project</string>
+    <string name="hello_pollfish">Hello Pollfish! This Activity demonstrates how you can use Pollfish in your app. Please note, that this activity is recreated on each orientation change </string>
+    <string name="hide">Hide</string>
+    <string name="show">Show</string>
+    <string name="activity2">Orientations</string>
+    <string name="activity3">Rewarded Survey</string>
+    <string name="activity4">Offerwall</string>
+    <string name="offerwall">Offerwall</string>
+    <string name="activity_incent">Rewarded Survey Activity. This Activity demonstrates how you can incentivize your users to complete a survey</string>
+    <string name="activity_offerwall">Offerwall Activity. This Activity demonstrates how you can incentivize your users to complete surveys on the offerwall</string>
+    <string name="activity_exp">Orientations Activity. This Activity demonstrates how you will hide/adjust Pollfish when your activity is not recreated on orientation change</string>
+    <string name="activity_back">Back</string>
+    <string name="win_coins">Win 200 coins by completing a survey</string>
+    <string name="win_coins_offer">This is a great offer</string>
+    <string name="win_coins_not_eligible">Unfortunately you were not eligible, you still get 50 coins</string>
+    <string name="landscape_warn">Pollfish is only shown in Portrait mode, except in tablets</string>
+    <string name="survey_completed">Pollfish Survey Completed - Congratulations, you have won 200 coins!</string>
+    <string name="survey_offerwall_completed">Pollfish Survey Completed</string>
+    <string name="logging">Logging area..</string>
+    <string name="user_not_eligible">User Not Eligible</string>
+    <string name="user_rejected_survey">User Rejected Survey</string>
+    <string name="survey_not_available">Pollfish Survey Not Available</string>
+    <string name="offerwall_available">Pollfish Offerwall available</string>
+    <string name="survey_received">Pollfish Survey Received</string>
+    <string name="on_pollfish_closed">onPollfishClosed</string>
+    <string name="on_pollfish_opened">onPollfishOpened</string>
+</resources>
