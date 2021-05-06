@@ -1,6 +1,5 @@
 # application files
 **/*.apk
-**/*.aar
 
 # Files for the Dalvik VM
 **/*.dex
