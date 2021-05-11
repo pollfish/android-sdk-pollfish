@@ -12,4 +12,4 @@ The is Pollfish SDK for Android.
 
 The SDK allows the completion of surveys through a Pollfish enabled app
 
-More information can be found in the documentation online at https://www.pollfish.com/docs/android-v6/google-play
+More information can be found in the documentation online at https://www.pollfish.com/docs/android/google-play
