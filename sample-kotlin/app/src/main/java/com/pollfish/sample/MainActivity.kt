@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity(),
 
     override fun onPollfishSurveyCompleted(surveyInfo: SurveyInfo) {
         Log.d(TAG, """
-            onPollfishSurveyReceived with CPA: ${surveyInfo.surveyCPA}
+            onPollfishSurveyCompleted with CPA: ${surveyInfo.surveyCPA}
             and surveyClass: ${surveyInfo.surveyClass}
             and LOI: ${surveyInfo.surveyLOI}
             and IR: ${surveyInfo.surveyIR}
