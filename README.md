@@ -12,13 +12,13 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 
 [Learn More..](http://www.pollfish.com/monetize)
 
-## Prerequisites
+# Prerequisites
 
 - Android 21 or higher
 - Java version 1.8
 - Google Play Services
 
-## Quick Quide
+# Quick Quide
 
 - Register as a publisher at [Pollfish](http://www.pollfish.com/login/publisher), create an App and copy app's API key
 - Download Pollfish aar file and import to your project
@@ -28,18 +28,18 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 - Update your privacy policy
 - Set to Release mode and publish your app at any app store
 
-## Look & Feel
+# Look & Feel
 
 ![alt tag](https://storage.googleapis.com/pollfish_production/multimedia/playful_survey.gif)
 
-## Documentation
+# Documentation
 
 You can see a step by step guide on how to integrate at the official [Documentation page](http://www.pollfish.com/docs/android-v6/google-play)
 
-## Pollfish Android Demo App
+# Pollfish Android Demo App
 
 Try the look and feel of Pollfish surveys on [Pollfish Android Demo App](https://play.google.com/store/apps/details?id=com.pollfish.demo)
 
-## FAQ
+# FAQ
 
 You can see frequently asked questions [here](https://www.pollfish.com/faq)
