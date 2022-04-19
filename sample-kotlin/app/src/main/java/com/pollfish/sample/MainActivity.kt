@@ -1,13 +1,11 @@
 package com.pollfish.sample
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.pollfish.Pollfish
 import com.pollfish.builder.Params
-import com.pollfish.builder.Position
-import com.pollfish.builder.UserProperties
 import com.pollfish.callback.*
 import com.pollfish.sample.databinding.ActivityMainBinding
 
@@ -29,98 +27,59 @@ class MainActivity : AppCompatActivity(),
 
         setContentView(binding.root)
 
-        // Show Pollfish if available anywhere within the activity LifeCycle
-        binding.showBtn.setOnClickListener {
+        binding.coinsBtn.setOnClickListener {
             Pollfish.show()
-        }
-
-        // Hide Pollfish if available anywhere within the activity LifeCycle
-        binding.hideBtn.setOnClickListener {
-            Pollfish.hide()
-        }
-
-        binding.rewardedSurveyActBtn.setOnClickListener {
-            startActivity(Intent(this, RewardedSurveyActivity::class.java))
-        }
-
-        binding.offerwallActBtn.setOnClickListener {
-            startActivity(Intent(this, OfferwallActivity::class.java))
         }
 
         initPollfish()
     }
 
-    override fun onResume() {
-        super.onResume()
-
-        if (!Pollfish.isPollfishPresent()) {
-            initPollfish()
-        }
-    }
-
     private fun initPollfish() {
-        val userProperties = UserProperties.Builder()
-            .gender(UserProperties.Gender.MALE)
-            .yearOfBirth(1984)
-            .maritalStatus(UserProperties.MaritalStatus.SINGLE)
-            .parentalStatus(UserProperties.ParentalStatus.ZERO)
-            .educationLevel(UserProperties.EducationLevel.UNIVERSITY)
-            .employmentStatus(UserProperties.EmploymentStatus.EMPLOYED_FOR_WAGES)
-            .career(UserProperties.Career.TELECOMMUNICATIONS)
-            .race(UserProperties.Race.WHITE)
-            .income(UserProperties.Income.MIDDLE_I)
-            .customAttribute("MY_PARAM", "MY_VALUE")
-            .build()
-
         val params = Params.Builder("YOUR_API_KEY")
-            .indicatorPadding(50)
-            .indicatorPosition(Position.MIDDLE_RIGHT)
-            .releaseMode(false)
-            .userProperties(userProperties)
+            .rewardMode(true)
             .build()
 
         Pollfish.initWith(this, params)
     }
 
     override fun onPollfishSurveyCompleted(surveyInfo: SurveyInfo) {
-        Log.d(TAG, """
-            onPollfishSurveyCompleted with CPA: ${surveyInfo.surveyCPA}
-            and surveyClass: ${surveyInfo.surveyClass}
-            and LOI: ${surveyInfo.surveyLOI}
-            and IR: ${surveyInfo.surveyIR}
-        """.trimIndent())
-    }
+        binding.coinsBtn.visibility = View.GONE
 
-    override fun onPollfishSurveyNotAvailable() {
-        Log.d(TAG, "onPollfishSurveyNotAvailable()")
-    }
-
-    override fun onPollfishOpened() {
-        Log.d(TAG, "onPollfishOpened()")
-    }
-
-    override fun onPollfishClosed() {
-        Log.d(TAG, "onPollfishClosed()")
-    }
-
-    override fun onUserNotEligible() {
-        Log.d(TAG, "onUserNotEligible()")
-    }
-
-    override fun onUserRejectedSurvey() {
-        Log.d(TAG, "onUserRejectedSurvey()")
+        // in a real world scenario you should wait here for verification from s2s callback prior rewarding your users
+        binding.logText.text = getString(R.string.survey_completed, surveyInfo.rewardValue ?: 200)
     }
 
     override fun onPollfishSurveyReceived(surveyInfo: SurveyInfo?) {
-        Log.d(TAG, """
-            onPollfishSurveyReceived with CPA: ${surveyInfo?.surveyCPA}
-            and surveyClass: ${surveyInfo?.surveyClass}
-            and LOI: ${surveyInfo?.surveyLOI}
-            and IR: ${surveyInfo?.surveyIR}
-        """.trimIndent())
+        binding.coinsBtn.visibility = View.VISIBLE
+        binding.coinsBtn.text = getString(R.string.win_coins, surveyInfo?.rewardValue ?: 200)
+        binding.logText.setText(R.string.survey_received)
+    }
+
+    override fun onPollfishOpened() {
+        Log.d(TAG, getString(R.string.on_pollfish_opened))
+    }
+
+    override fun onPollfishClosed() {
+        Log.d(TAG, getString(R.string.on_pollfish_closed))
+    }
+
+    override fun onPollfishSurveyNotAvailable() {
+        Log.d(TAG, getString(R.string.survey_not_available))
+        binding.logText.setText(R.string.survey_not_available)
+    }
+
+    override fun onUserNotEligible() {
+        Log.d(TAG, getString(R.string.user_not_eligible))
+        binding.coinsBtn.visibility = View.GONE
+        binding.logText.setText(R.string.user_not_eligible)
+    }
+
+    override fun onUserRejectedSurvey() {
+        binding.coinsBtn.visibility = View.GONE
+        binding.logText.setText(R.string.user_rejected_survey)
     }
 
     companion object {
-        const val TAG = "Pollfish"
+        const val TAG = "MainActivity"
     }
 }

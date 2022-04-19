@@ -4,67 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.pollfish.sample.MainActivity" >
+    tools:context="com.pollfish.sample.MainActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:padding="7dp"
-        android:text="@string/hello_pollfish"
-        android:textColor="@android:color/black" />
-
-    <Button
-        android:id="@+id/show_btn"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/button_main"
-        android:text="@string/show"
-        android:textColor="@android:color/white" />
-
-    <Button
-        android:id="@+id/hide_btn"
-        android:layout_width="90dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/button_main"
-        android:text="@string/hide"
-        android:textColor="@android:color/white" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="2dp" >
+        android:orientation="vertical" >
 
         <Button
-            android:id="@+id/rewarded_survey_act_btn"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="1dp"
-            android:layout_weight="1.0"
+            android:id="@+id/coins_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/button_main"
-            android:padding="9dp"
-            android:text="@string/activity3"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:text="@string/win_coins"
             android:textColor="@android:color/white" />
 
-        <Button
-            android:id="@+id/offerwall_act_btn"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="1dp"
-            android:layout_weight="1.0"
-            android:background="@drawable/button_main"
-            android:padding="9dp"
-            android:text="@string/activity4"
-            android:textColor="@android:color/white" />
+        <TextView
+            android:id="@+id/logText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:padding="16dp"
+            android:text="@string/logging"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

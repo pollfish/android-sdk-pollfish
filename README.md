@@ -24,9 +24,9 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 - Download Pollfish aar file and import to your project
 - Import Google Play Services for your app, as described [here](https://developer.android.com/google/play-services/setup.html).
 - Import Pollfish classes
-- Call Pollfish initialization function in onResume() of your Activity to activate Pollfish
+- Call Pollfish `init` function in your Activity's `onCreate` to activate Pollfish
 - Update your privacy policy
-- Set to Release mode and publish your app at any app store
+- Set to Release mode and publish your app to the app store
 
 # Look & Feel
 
