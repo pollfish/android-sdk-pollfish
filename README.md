@@ -34,7 +34,7 @@ Since Pollfish addresses the market research marketplace, Pollfish surveys can b
 
 # Documentation
 
-You can see a step by step guide on how to integrate at the official [Documentation page](http://www.pollfish.com/docs/android-v6/google-play)
+You can see a step by step guide on how to integrate at the official [Documentation page](http://www.pollfish.com/docs/android/google-play)
 
 # Pollfish Android Demo App
 
