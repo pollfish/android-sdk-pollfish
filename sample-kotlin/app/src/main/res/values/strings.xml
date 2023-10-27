@@ -1,22 +1,22 @@
 <resources>
-    <string name="app_name">Pollfish Sample Project</string>
-    <string name="hello_pollfish">Hello Pollfish! This Activity demonstrates how you can use Pollfish in your app. Please note, that this activity is recreated on each orientation change </string>
+    <string name="app_name">Prodege Sample App</string>
 
-    <string name="hide">Hide</string>
-    <string name="show">Show</string>
+    <!-- TODO: Place your keys here -->
+    <string name="prodege_api_key">YOUR_API_KEY</string>
+    <string name="prodege_rewarded_placement_id">YOUR_PLACEMENT_ID</string>
 
-    <string name="win_coins">Win %1$d coins by completing a survey</string>
-    <string name="win_coins_offer">This is a great offer</string>
-    <string name="win_coins_not_eligible">Unfortunately you were not eligible, you still get %1$d coins</string>
-    <string name="landscape_warn">Pollfish is only shown in Portrait mode, except in tablets</string>
-    <string name="survey_completed">Pollfish Survey Completed - Congratulations, you have won %1$d coins!</string>
-    <string name="survey_offerwall_completed">Pollfish Survey Completed</string>
-    <string name="logging">Logging ...</string>
-    <string name="user_not_eligible">User Not Eligible</string>
-    <string name="user_rejected_survey">User Rejected Survey</string>
-    <string name="survey_not_available">Pollfish Survey Not Available</string>
-    <string name="offerwall_available">Pollfish Offerwall available</string>
-    <string name="survey_received">Pollfish Survey Received</string>
-    <string name="on_pollfish_closed">onPollfishClosed</string>
-    <string name="on_pollfish_opened">onPollfishOpened</string>
+    <string name="win_coins">Win %1$d %2$s with Prodege Ads</string>
+    <string name="on_prodege_reward_received">Congratulations, you have won %1$d %2$s!</string>
+    <string name="on_user_not_eligible">User Not Eligible for placement %1$s</string>
+    <string name="on_user_reject">User Rejected placement %1$s</string>
+    <string name="on_prodege_placement_completed">Placement %1$s completed</string>
+    <string name="on_prodege_placement_started">Placement %1$s started</string>
+    <string name="on_prodege_placement_click">Placement %1$s click</string>
+    <string name="on_placement_closed">Placement %1$s closed</string>
+    <string name="on_placement_opened">Placement %1$s opened</string>
+    <string name="on_placement_failed_to_show">Placement %1$s failed to show with error %2$s</string>
+    <string name="on_rewarded_placement_loaded">Placement %1$s loaded</string>
+    <string name="on_rewarded_placement_load_failed">Placement %1$s failed to load with error %2$s</string>
+    <string name="on_prodege_sdk_init_error">Prodege SDK failed to initialize with error %1$s</string>
+    <string name="on_prodege_sdk_init_success">Prodege SDK initialized</string>
 </resources>
